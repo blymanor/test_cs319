@@ -71,11 +71,10 @@
 
       <div class="form-group">
         <label>Language</label>
-        <select id="language" name="language" required>
-          <option value="">-- Select Language --</option>
-          <option value="English">English</option>
-          <option value="Thai">Thai</option>
-        </select>
+        <div class="radio-group">
+          <label><input type="radio" name="language" value="thai" required /> Thai</label>
+          <label><input type="radio" name="language" value="english" required /> English</label>
+        </div>
         <small class="error" id="languageError"></small>
       </div>
 
@@ -84,7 +83,7 @@
         <div class="radio-group">
           <label><input type="radio" name="gender" value="male" required /> Male</label>
           <label><input type="radio" name="gender" value="female" required /> Female</label>
-          <label><input type="radio" name="gender" value="other" required /> Prefer not to say</label>
+          <label><input type="radio" name="gender" value="other" required /> LGBTQ+</label>
         </div>
         <small class="error" id="genderError"></small>
       </div>
