@@ -101,11 +101,9 @@ form.addEventListener('submit', function(e) {
   const language = document.querySelector('input[name="language"]:checked');
   if (language === "") {
     document.getElementById('languageError').textContent = "Please select a language.";
-    document.getElementById('language').classList.add("invalid");
     valid = false;
   } else {
     document.getElementById('languageError').textContent = "";
-    document.getElementById('language').classList.remove("invalid");
   }
 
   // Gender
