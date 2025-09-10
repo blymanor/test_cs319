@@ -1,81 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registration Form</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h2>Registration Form</h2>
-    <form id="regForm" novalidate>
-      <label>Username</label>
-      <input type="text" id="username" name="username" placeholder="Enter username" required>
-      <small class="error" id="usernameError"></small>
-
-      <label>Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter password" required>
-      <small class="error" id="passwordError"></small>
-
-      <label>First Name</label>
-      <input type="text" id="fname" name="fname" placeholder="John" required>
-      <small class="error" id="fnameError"></small>
-
-      <label>Last Name</label>
-      <input type="text" id="lname" name="lname" placeholder="Doe" required>
-      <small class="error" id="lnameError"></small>
-
-      <label>Email</label>
-      <input type="email" id="email" name="email" placeholder="example@mail.com" required>
-      <small class="error" id="emailError"></small>
-
-      <label>Address</label>
-      <input type="text" id="address" name="address" placeholder="123 Main St">
-
-      <label>Country</label>
-      <select id="country" name="country" required>
-        <option value="">-- Select Country --</option>
-        <option value="th">Thailand</option>
-        <option value="us">USA</option>
-        <option value="jp">Japan</option>
-        <option value="cn">China</option>
-        <option value="kr">South Korea</option>
-        <option value="uk">United Kingdom</option>
-        <option value="fr">France</option>
-        <option value="de">Germany</option>
-        <option value="au">Australia</option>
-        <option value="in">India</option>
-        <option value="sg">Singapore</option>
-      </select>
-      <small class="error" id="countryError"></small>
-
-      <label>ZIP Code</label>
-      <input type="text" id="zipcode" name="zipcode" placeholder="12345" required>
-      <small class="error" id="zipcodeError"></small>
-
-      <label>Language</label>
-      <div class="radio-group">
-        <label><input type="radio" name="language" value="English" required> English</label>
-        <label><input type="radio" name="language" value="Thai" required> Thai</label>
+    <form id="regForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+        <small class="error" id="usernameError"></small>
       </div>
-      <small class="error" id="languageError"></small>
 
-      <label>Gender</label>
-      <div class="radio-group">
-        <label><input type="radio" name="gender" value="Male" required> Male</label>
-        <label><input type="radio" name="gender" value="Female" required> Female</label>
-        <label><input type="radio" name="gender" value="LGBTQ+" required> LGBTQ+</label>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <small class="error" id="passwordError"></small>
       </div>
-      <small class="error" id="genderError"></small>
 
-      <label>Note</label>
-      <textarea id="note" name="note" rows="5" placeholder="Write something..."></textarea>
+      <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" required />
+        <small class="error" id="fnameError"></small>
+      </div>
 
-      <button type="submit">Submit</button>
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" required />
+        <small class="error" id="lnameError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <small class="error" id="emailError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address (Optional)</label>
+        <input type="text" id="address" name="address" />
+      </div>
+
+      <div class="form-group">
+        <label for="zipcode">Zip Code</label>
+        <input type="text" id="zipcode" name="zipcode" required />
+        <small class="error" id="zipcodeError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+          <option value="">-- Select Country --</option>
+          <option value="Thailand">Thailand</option>
+          <option value="USA">USA</option>
+          <option value="UK">United Kingdom</option>
+          <option value="Japan">Japan</option>
+          <option value="China">China</option>
+          <option value="Germany">Germany</option>
+          <option value="France">France</option>
+          <option value="India">India</option>
+          <option value="Canada">Canada</option>
+          <option value="Australia">Australia</option>
+        </select>
+        <small class="error" id="countryError"></small>
+      </div>
+
+      <div class="form-group">
+        <label>Language</label>
+        <select id="language" name="language" required>
+          <option value="">-- Select Language --</option>
+          <option value="English">English</option>
+          <option value="Thai">Thai</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Chinese">Chinese</option>
+        </select>
+        <small class="error" id="languageError"></small>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="male" required /> Male</label>
+          <label><input type="radio" name="gender" value="female" required /> Female</label>
+          <label><input type="radio" name="gender" value="other" required /> Other</label>
+        </div>
+        <small class="error" id="genderError"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="note">Note</label>
+        <textarea id="note" name="note" rows="5"></textarea>
+      </div>
+
+      <button type="submit">Register</button>
     </form>
   </div>
-
   <script src="form_validation.js"></script>
 </body>
 </html>
