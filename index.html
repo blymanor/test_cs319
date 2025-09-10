@@ -58,7 +58,8 @@
 
       <div class="form-group">
         <label for="zipcode">Zip Code</label>
-        <input type="text" id="zipcode" name="zipcode" required />
+        <input input id="zipcode" name="address" type="text" placeholder="Enter your zip code"
+               type="text" id="zipcode" name="zipcode" required />
         <small class="error" id="zipcodeError"></small>
         <p class="text-red-500 text-sm mt-1 error-message"></p>
       </div>
@@ -104,8 +105,9 @@
       </div>
 
       <div class="form-group">
-        <label for="note">Note</label>
-        <textarea id="note" name="note" rows="5"></textarea>
+        <label for="note">Note (Optional) </label>
+        <input id="note" name="note" type="text" placeholder="Write something here…"
+               <textarea id="note" name="note" rows="5"></textarea>
       </div>
 
       <button type="submit">Register</button>
