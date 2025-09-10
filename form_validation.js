@@ -1,76 +1,92 @@
-document.getElementById("regForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+const form = document.getElementById('regForm');
 
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
   let valid = true;
 
-  // Reset errors
-  document.querySelectorAll(".error").forEach(el => el.textContent = "");
-
-  let username = document.getElementById("username").value.trim();
-  let password = document.getElementById("password").value.trim();
-  let fname = document.getElementById("fname").value.trim();
-  let lname = document.getElementById("lname").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let zipcode = document.getElementById("zipcode").value.trim();
-  let country = document.getElementById("country").value;
-
-  // Username 5-12
+  // Username
+  const username = document.getElementById('username').value.trim();
   if (username.length < 5 || username.length > 12) {
-    document.getElementById("usernameError").textContent = "Username must be 5-12 characters.";
+    document.getElementById('usernameError').textContent = "Username must be 5–12 characters.";
     valid = false;
+  } else {
+    document.getElementById('usernameError').textContent = "";
   }
 
-  // Password 6-16
+  // Password
+  const password = document.getElementById('password').value.trim();
   if (password.length < 6 || password.length > 16) {
-    document.getElementById("passwordError").textContent = "Password must be 6-16 characters.";
+    document.getElementById('passwordError').textContent = "Password must be 6–16 characters.";
     valid = false;
+  } else {
+    document.getElementById('passwordError').textContent = "";
   }
 
-  // First Name alphabet only
+  // First Name
+  const fname = document.getElementById('fname').value.trim();
   if (!/^[A-Za-z]+$/.test(fname)) {
-    document.getElementById("fnameError").textContent = "First name must contain alphabets only.";
+    document.getElementById('fnameError').textContent = "First name must contain only letters.";
     valid = false;
+  } else {
+    document.getElementById('fnameError').textContent = "";
   }
 
-  // Last Name alphabet only
+  // Last Name
+  const lname = document.getElementById('lname').value.trim();
   if (!/^[A-Za-z]+$/.test(lname)) {
-    document.getElementById("lnameError").textContent = "Last name must contain alphabets only.";
+    document.getElementById('lnameError').textContent = "Last name must contain only letters.";
     valid = false;
+  } else {
+    document.getElementById('lnameError').textContent = "";
   }
 
-  // Email validation
-  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    document.getElementById("emailError").textContent = "Please enter a valid email.";
+  // Email
+  const email = document.getElementById('email').value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById('emailError').textContent = "Enter a valid email.";
     valid = false;
+  } else {
+    document.getElementById('emailError').textContent = "";
   }
 
-  // Country required
-  if (!country) {
-    document.getElementById("countryError").textContent = "Please select a country.";
+  // Zip Code
+  const zipcode = document.getElementById('zipcode').value.trim();
+  if (!/^\d+$/.test(zipcode)) {
+    document.getElementById('zipcodeError').textContent = "Zip Code must be numbers only.";
     valid = false;
+  } else {
+    document.getElementById('zipcodeError').textContent = "";
   }
 
-  // ZIP code numeric only
-  if (!/^[0-9]+$/.test(zipcode)) {
-    document.getElementById("zipcodeError").textContent = "ZIP Code must be numeric only.";
+  // Country
+  const country = document.getElementById('country').value;
+  if (country === "") {
+    document.getElementById('countryError').textContent = "Please select a country.";
     valid = false;
+  } else {
+    document.getElementById('countryError').textContent = "";
   }
 
-  // Language required
-  if (!document.querySelector('input[name="language"]:checked')) {
-    document.getElementById("languageError").textContent = "Please select a language.";
+  // Language
+  const language = document.getElementById('language').value;
+  if (language === "") {
+    document.getElementById('languageError').textContent = "Please select a language.";
     valid = false;
+  } else {
+    document.getElementById('languageError').textContent = "";
   }
 
-  // Gender required
-  if (!document.querySelector('input[name="gender"]:checked')) {
-    document.getElementById("genderError").textContent = "Please select a gender.";
+  // Gender
+  const gender = document.querySelector('input[name="gender"]:checked');
+  if (!gender) {
+    document.getElementById('genderError').textContent = "Please select your gender.";
     valid = false;
+  } else {
+    document.getElementById('genderError').textContent = "";
   }
 
   if (valid) {
-    alert("Form submitted successfully!");
-    this.submit();
+    alert("Registration successful!");
+    form.reset();
   }
 });
